@@ -1,36 +1,20 @@
-import { initialTasks } from "@/mock";
-import { Task } from "@/types";
-import { useEffect, useState } from "react";
+import { useTasksContext } from "./useTasksContext";
 
 export function useTasksList() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { tasks, update, remove } = useTasksContext();
 
-  useEffect(() => {
-    // Simula uma chamada de API
-    const timer = setTimeout(() => {
-      setTasks(initialTasks);
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const toggleComplete = (id: number) => {
-    setTasks((tasks) =>
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
+  const toggleComplete = async (id: number) => {
+    const task = tasks.find((t) => t.id === id);
+    if (!task) return;
+    await update(id, { ...task, completed: !task.completed });
   };
 
-  const deleteTask = (id: number) => {
-    setTasks((tasks) => tasks.filter((task) => task.id !== id));
+  const deleteTask = async (id: number) => {
+    await remove(id);
   };
 
   return {
     tasks,
-    isLoading,
     toggleComplete,
     deleteTask,
   };

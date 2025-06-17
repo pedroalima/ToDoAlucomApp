@@ -1,5 +1,6 @@
 "use client";
 
+import { useTasksContext } from "@/hooks/useTasksContext";
 import { Logs } from "lucide-react";
 import { useTasksList } from "../../hooks/useTasksList";
 import Container from "../commons/Container";
@@ -8,7 +9,8 @@ import TaskCard from "./TaskCard";
 import TaskCardSkeleton from "./TaskCardSkeleton";
 
 export default function TasksList() {
-  const { tasks, toggleComplete, deleteTask, isLoading } = useTasksList();
+  const { tasks, toggleComplete, deleteTask } = useTasksList();
+  const { isLoading } = useTasksContext();
 
   return (
     <Container>

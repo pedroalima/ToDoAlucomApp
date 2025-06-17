@@ -4,10 +4,17 @@ import { ListTodo, Plus } from "lucide-react";
 import { useAddTaskForm } from "../../hooks/useAddTaskForm";
 import Container from "../commons/Container";
 import Input from "../commons/Input";
+import SpanError from "../commons/SpanError";
 
 export default function AddTaskForm() {
-  const { title, setTitle, description, setDescription, handleSubmit } =
-    useAddTaskForm();
+  const {
+    title,
+    setTitle,
+    description,
+    setDescription,
+    handleSubmit,
+    titleError,
+  } = useAddTaskForm();
 
   return (
     <Container>
@@ -25,16 +32,21 @@ export default function AddTaskForm() {
           </button>
         </div>
         <div className="flex flex-col lg:flex-row gap-2">
-          <Input
-            placeholder="Nome..."
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <Input
-            placeholder="Descrição..."
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+          <div className="flex flex-col flex-1">
+            <Input
+              placeholder="Nome..."
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <SpanError message={titleError} />
+          </div>
+          <div className="flex flex-col flex-1">
+            <Input
+              placeholder="Descrição..."
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
         </div>
       </form>
     </Container>
