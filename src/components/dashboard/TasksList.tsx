@@ -3,9 +3,9 @@
 import { Logs } from "lucide-react";
 import { useTasksList } from "../../hooks/useTasksList";
 import Container from "../commons/Container";
-import EmptyTaskList from "../commons/EmptyTaskList";
-import TaskCardSkeleton from "../commons/TaskCardSkeleton";
+import EmptyTaskList from "./EmptyTaskList";
 import TaskCard from "./TaskCard";
+import TaskCardSkeleton from "./TaskCardSkeleton";
 
 export default function TasksList() {
   const { tasks, toggleComplete, deleteTask, isLoading } = useTasksList();

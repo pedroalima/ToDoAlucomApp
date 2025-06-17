@@ -1,11 +1,5 @@
+import { TaskCardProps } from "@/types";
 import { Trash2 } from "lucide-react";
-import { Task } from "../../hooks/useTasksList";
-
-interface TaskCardProps {
-  task: Task;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
-}
 
 export default function TaskCard({ task, onToggle, onDelete }: TaskCardProps) {
   return (

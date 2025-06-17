@@ -1,26 +1,6 @@
+import { initialTasks } from "@/mock";
+import { Task } from "@/types";
 import { useEffect, useState } from "react";
-
-export interface Task {
-  id: number;
-  title: string;
-  description: string;
-  completed: boolean;
-}
-
-const initialTasks: Task[] = [
-  // {
-  //   id: 1,
-  //   title: "lorem ipsum",
-  //   description: "lorem ipsum dolor sit amet",
-  //   completed: true,
-  // },
-  // {
-  //   id: 2,
-  //   title: "lorem ipsum 2",
-  //   description: "",
-  //   completed: true,
-  // }
-];
 
 export function useTasksList() {
   const [tasks, setTasks] = useState<Task[]>([]);
