@@ -4,6 +4,11 @@
   --background: #1d293d;
   --foreground: #ffffff;
   --red: #dc2626;
+  --red-dark: #b91c1c;
+  --blue-gray: #2e3a4a;
+  --blue-gray-light: #3b4a5a;
+  --gray-light: #9ca3af;
+  --slate-light: #bfd5e2;
 }
 
 @theme inline {
@@ -11,6 +16,11 @@
   --color-foreground: var(--foreground);
   --font-inter: var(--font-inter);
   --color-red: var(--red);
+  --color-red-dark: var(--red-dark);
+  --color-blue-gray: var(--blue-gray);
+  --color-blue-gray-light: var(--blue-gray-light);
+  --color-gray-light: var(--gray-light);
+  --color-slate-light: var(--slate-light);
 }
 
 body {

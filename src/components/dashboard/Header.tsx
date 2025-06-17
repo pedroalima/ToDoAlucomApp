@@ -9,7 +9,7 @@ export default function Header() {
         </div>
         <h1 className="text-3xl font-bold">ToDo Alucom</h1>
       </div>
-      <p className="text-slate-300">Organize suas tarefas com eficiência</p>
+      <p className="text-slate-light">Organize suas tarefas com eficiência</p>
     </header>
   );
 }
