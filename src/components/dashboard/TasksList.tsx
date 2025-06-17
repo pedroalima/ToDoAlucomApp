@@ -1,15 +1,21 @@
 "use client";
 
 import { useTasksContext } from "@/hooks/useTasksContext";
+import { closestCenter, DndContext } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 import { Logs } from "lucide-react";
 import { useTasksList } from "../../hooks/useTasksList";
 import Container from "../commons/Container";
 import EmptyTaskList from "./EmptyTaskList";
-import TaskCard from "./TaskCard";
+import { SortableTaskCard } from "./SortableTaskCard";
 import TaskCardSkeleton from "./TaskCardSkeleton";
 
 export default function TasksList() {
-  const { tasks, toggleComplete, deleteTask } = useTasksList();
+  const { tasks, toggleComplete, deleteTask, sensors, handleDragEnd } =
+    useTasksList();
   const { isLoading } = useTasksContext();
 
   return (
@@ -28,14 +34,28 @@ export default function TasksList() {
           ) : tasks.length === 0 ? (
             <EmptyTaskList />
           ) : (
-            tasks.map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onToggle={toggleComplete}
-                onDelete={deleteTask}
-              />
-            ))
+            // Componente da biblioteca dnd-kit
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={handleDragEnd}
+            >
+              {/* Componente da biblioteca dnd-kit */}
+              <SortableContext
+                items={tasks.map((task) => task.id)}
+                strategy={verticalListSortingStrategy}
+              >
+                {tasks.map((task) => (
+                  // Componente da biblioteca dnd-kit
+                  <SortableTaskCard
+                    key={task.id}
+                    task={task}
+                    onToggle={toggleComplete}
+                    onDelete={deleteTask}
+                  />
+                ))}
+              </SortableContext>
+            </DndContext>
           )}
         </div>
       </section>
