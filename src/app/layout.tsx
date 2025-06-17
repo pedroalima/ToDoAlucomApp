@@ -12,10 +12,7 @@ export const metadata: Metadata = {
   title: "ToDoAlucom",
   description: "Sua lista de tarefas mais organizada",
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
+    icon: [{ url: "/favicon.png", type: "image/png" }],
   },
 };
 
