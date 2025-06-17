@@ -1,7 +1,11 @@
 export default function Home() {
   return (
     <div>
-      <main></main>
+      <main>
+        <header>
+          <h1>ToDoAlucom</h1>
+        </header>
+      </main>
       <footer></footer>
     </div>
   );
