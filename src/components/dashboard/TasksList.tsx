@@ -25,6 +25,11 @@ export default function TasksList() {
           <Logs className="text-red text-lg sm:text-xl" />
           <h2 className="text-lg sm:text-2xl font-semibold">Suas Tarefas</h2>
         </div>
+        {tasks.length > 0 && (
+          <p className="text-sm text-gray-light mb-2">
+            💡 Clique sobre uma tarefa para marcá-la como concluída
+          </p>
+        )}
         <div className="flex flex-col gap-3">
           {isLoading ? (
             <>

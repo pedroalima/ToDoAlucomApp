@@ -9,7 +9,7 @@ export default function TaskCard({
 }: TaskCardPropsWithDrag) {
   return (
     <div
-      className={`flex items-center justify-between rounded-lg px-4 py-3 border border-blue-gray-light hover:border-red transition-colors select-none ${
+      className={`flex items-center justify-between rounded-lg px-4 py-3 border border-blue-gray-light hover:border-red transition-colors select-none cursor-pointer ${
         task.completed ? "bg-blue-gray-light/80" : "bg-background"
       }`}
       onClick={() => onToggle(task.id)}
