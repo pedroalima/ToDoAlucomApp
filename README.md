@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo Alucom
 
-## Getting Started
+Este é o front-end do projeto Todo Alucom, desenvolvido com React e TypeScript, que implementa uma interface moderna e responsiva para gerenciamento de tarefas.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 18 ou superior
+- Git
+
+## Rodando Projeto
+
+O projeto já se encontra em ambiente de produção e pode ser acessado através das URLs:
+
+- Front-end: [https://to-do-alucom-app.vercel.app/](https://to-do-alucom-app.vercel.app/)
+- Back-end: [https://todoalucomapi.onrender.com](https://todoalucomapi.onrender.com)
+
+Para executar localmente, certifique-se que o back-end está rodando em sua máquina (veja como fazer isso no repositório do back-end: https://github.com/pedroalima/ToDoAlucomAPI), agora siga os passos abaixo:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/pedroalima/ToDoAlucomApp.git
+```
+
+Entre na raiz do projeto:
+
+```bash
+cd ToDoAlucomApp
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Procure arquivo axiosClient dentro da pasta services e altere a baseURL: para "http://localhost:8080"
+
+```ts
+import axios from "axios";
+
+const axiosClient = axios.create({
+  baseURL: "http://localhost:8080",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export default axiosClient;
+```
+
+4. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- React
+- TypeScript
+- Next
+- Tailwind CSS
+- Axios
+- Lucide React
+- Dnd-kit
+- Vercel
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- Listagem de tarefas
+- Criação de novas tarefas
+- Exclusão de tarefas
+- Marcação de tarefas como concluídas (atualizações enviadas para o banco de dados)
+- Arrastar e soltar a tarefa, para reordenar sua posição na lista
+- Interface responsiva e moderna
+- Validação de formulários
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Autor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- LinkedIn - [Pedro A. Lima](https://www.linkedin.com/in/pedroalima6/)
