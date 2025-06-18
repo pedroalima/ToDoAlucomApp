@@ -21,8 +21,8 @@ export function SortableTaskCard(props: TaskCardProps) {
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <TaskCard {...props} />
+    <div ref={setNodeRef} style={style}>
+      <TaskCard {...props} dragHandleProps={{ ...attributes, ...listeners }} />
     </div>
   );
 }

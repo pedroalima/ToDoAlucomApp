@@ -23,3 +23,14 @@ export interface TasksContextProps {
   update: (id: number, task: Task) => Promise<void>;
   remove: (id: number) => Promise<void>;
 }
+
+export interface TaskCardPropsWithDrag extends TaskCardProps {
+  dragHandleProps?: {
+    role: string;
+    tabIndex: number;
+    "aria-disabled": boolean;
+    "aria-pressed"?: boolean;
+    "aria-roledescription": string;
+    "aria-describedby": string;
+  };
+}
